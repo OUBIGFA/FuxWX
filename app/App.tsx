@@ -4,7 +4,7 @@ import { Window } from "nsh/desktop";
 import { Cleaner } from "fuxwx-native";
 import { Action, displayPath, Icon, size } from "./ui";
 import type { FileEntry, Group, Row, Scan, Status } from "./types";
-import logo from "../assets/branding/FuxWX_logo.png";
+import { Footer } from "./Footer";
 
 async function request<T>(route: string, payload: unknown = null): Promise<T> {
   return JSON.parse(await Cleaner.request(route, JSON.stringify(payload)));
@@ -131,14 +131,7 @@ function App() {
         actions: [{ id: "ok", label: "知道了" }] });
     } catch (e) { message.set(String(e)); }
   }
-  const about = () => AlertDialog.show({ title: "关于 FuxWX", description: "FuxWX 0.1.0\n基于 WxCleaner · 原作者 yqxie\n原生界面 nsh · Apache-2.0\nSolar Linear 图标 · Solar Icons by 480 Design\n图标 CC BY 4.0 · 包装 Hakim Saoudi / MIT\nFuxWX · MIT 许可",
-    actions: [{ id: "ok", label: "知道了" }] });
-
   return <View class="text-[#26332c]" style={{ flex: 1, backgroundColor: "#ffffff" }}>
-    <View class="flex-row items-center justify-between px-7" style={{ height: 68, backgroundColor: "#eef2ef", borderBottomWidth: 1, borderBottomColor: "#cbd1cd" }}>
-      <View class="flex-row items-center gap-3"><Image src={logo} style={{ width: 34, height: 34 }} /><Text style={{ fontSize: 24, fontWeight: "500" }}>FuxWX</Text><Text style={{ marginLeft: 12, color: "#5a665e" }}>重复文件清理</Text></View>
-      <Action label="关于" icon="info" onPress={about} />
-    </View>
 
     <View class="px-7 pt-5 pb-4 gap-3">
       <Text style={{ fontSize: 15, fontWeight: "500" }}>扫描文件夹</Text>
@@ -226,6 +219,7 @@ function App() {
         {busy() ? <Button testID="cancel" onPress={() => request("cancel").catch(e => message.set(String(e)))} class="flex-row items-center gap-2"><Icon name="stop" size={16} /><Text style={{ fontSize: 13 }}>停止任务</Text></Button> : result()?.skipped.length ? <Button onPress={showDetails}><Text style={{ fontSize: 12, color: "#843c37" }}>{`跳过 ${result()!.skipped.length} 项 · 查看原因`}</Text></Button> : <Text style={{ fontSize: 12, color: "#5a665e" }}>文件只在本机处理</Text>}
       </View>
       {status().busy && status().total > 0 ? <View style={{ height: 3, backgroundColor: "#d8e1da" }}><View style={{ height: 3, width: `${Math.min(100, status().done / status().total * 100)}%`, backgroundColor: "#467459" }} /></View> : null}
+      <Footer />
     </View>
   </View>;
 }

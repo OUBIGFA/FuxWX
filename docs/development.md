@@ -19,6 +19,7 @@
 4. `nsh test`：无窗口界面交互测试
 5. `python tools/desktop_test.py tests/desktop/flow.test.tsx`：私有 Windows 桌面上的真实界面交互；不会切换用户桌面。脚本生成当前测试的数据和配置，再交给 nsh 的真实界面测试驱动
 6. `python tools/test_installer.py`：将本地测试安装器安装到本次临时目录，在私有桌面启动、检查响应并卸载。若发现已有 FuxWX 安装，保留它并停止此验收
+7. `python tools/test_installer_languages.py`：在私有桌面读取实际安装器语言和窗口，覆盖系统自动选择、英文、简体中文和繁体中文；只打开向导，不执行安装，可与用户已有安装共存
 
 回收站验证是显式测试，用本项目 `_temp/` 下生成的数据验证移入及恢复。运行前设置 `FUXWX_TEST_ROOT`，并将 `FUXWX_RECYCLE_BIN` 设为测试磁盘当前用户的回收站目录，执行 `cargo test --manifest-path crates/fuxwx-native/Cargo.toml --no-default-features windows_recycle_batch_is_restorable -- --ignored --nocapture`。测试仅恢复原路径属于本次临时目录的项目。不得把测试目录变量指向真实微信目录。
 
@@ -33,3 +34,5 @@
 浅色平面列表，灰绿色仅强调主要操作和保留状态。字体使用系统中文字体；单文件工具不增加无用侧栏。主界面直接显示重复组、可清理大小、文件路径和选择结果。文件详情在选中文件后显示。
 
 列表使用 nsh List 的原生虚拟化。后台清理每批最多 64 个文件；界面每 150 毫秒读取一次小型状态。清理期间不逐文件重建列表，完成后一次更新结果。
+
+底部更新检查只在点击时访问 GitHub latest Release，按三段版本号比较，10 秒超时；不存在正式版、限流、网络错误均明确显示，不自动下载或安装。版本号读取 nsh.json。安装器通过 tools/installer_languages.py 加入官方语言包，采用 Inno 的 LanguageDetectionMethod=uilanguage、UsePreviousLanguage=no 和 ShowLanguageDialog=no。

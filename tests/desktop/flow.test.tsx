@@ -41,7 +41,8 @@ test("shows a clean empty state after successful cleanup", async () => {
   await app.press("id:scan");
   await app.waitUntil(() => app.enabled("id:scan"), { timeout: 20000 });
   // The preceding cleanup keeps one image, so the scan has no duplicate group.
-  expect(app.texts()).toContain("FuxWX");
+  expect(app.texts()).toContain("github.com/OUBIGFA/FuxWX");
+  expect(app.texts()).not.toContain("关于");
   await app.clear("id:folder-path");
   await app.screenshot(`${fixture.reports}/FuxWX-empty.png`);
 });

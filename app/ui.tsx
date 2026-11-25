@@ -6,11 +6,10 @@ import copy from "../assets/icons/solar/copy.svg";
 import shield from "../assets/icons/solar/shield-check.svg";
 import trash from "../assets/icons/solar/trash-bin-minimalistic.svg";
 import stop from "../assets/icons/solar/stop-circle.svg";
-import info from "../assets/icons/solar/info-circle.svg";
 import file from "../assets/icons/solar/file-text.svg";
 import check from "../assets/icons/solar/check-circle.svg";
 
-const icons = { folder, search, copy, shield, trash, stop, info, file, check };
+const icons = { folder, search, copy, shield, trash, stop, file, check };
 export type IconName = keyof typeof icons;
 export function Icon(p: { name: IconName; color?: string; size?: number }) {
   return <Image src={icons[p.name]} style={{ width: p.size ?? 20, height: p.size ?? 20, tintColor: p.color ?? "#52645b" }} />;

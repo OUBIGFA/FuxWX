@@ -60,5 +60,42 @@
         "sha256": "3a2a416eda190d089eab9283cd99f2f1896ff9005e86fbe0e18195e477a0a4ba"
       }
     ]
+  },
+  {
+    "name": "GitHub Octicons",
+    "version": "35b70b19ae02abf88ae6d91af1e523ac44b9d9eb",
+    "url": "https://github.com/primer/octicons",
+    "license": "MIT",
+    "licenseFile": "third_party/licenses/Octicons-MIT.txt",
+    "consumer": "repository footer",
+    "changes": "none",
+    "inputs": [
+      {
+        "name": "assets/icons/github/mark-github.svg",
+        "bytes": 822,
+        "sha256": "7421820090b50ac79d7c2bf7c951a433d7098a8a9c474809207bdd45f62d9d46"
+      }
+    ]
+  },
+  {
+    "name": "Inno Setup Chinese translations",
+    "version": "120f38ddd48097cedb6752f0f8137b2786ac74c1",
+    "url": "https://github.com/jrsoftware/issrc",
+    "license": "LicenseRef-Inno-Setup",
+    "licenseFile": "third_party/licenses/Inno-Setup.txt",
+    "consumer": "Windows installer",
+    "changes": "none",
+    "inputs": [
+      {
+        "name": "assets/installer/languages/ChineseSimplified.isl",
+        "bytes": 21516,
+        "sha256": "e0b0b350e2245f3c5e65586dfe43d574f6e7f06f2261149aba284954b3fc9a8d"
+      },
+      {
+        "name": "assets/installer/languages/ChineseTraditional.isl",
+        "bytes": 21754,
+        "sha256": "031684fc769259291fd563338b5abe20b7753c88ab5a2976b83a80788deb8455"
+      }
+    ]
   }
 ]

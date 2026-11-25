@@ -9,8 +9,8 @@
   },
   {
     "path": "assets/screenshots/FuxWX.png",
-    "bytes": 91041,
-    "sha256": "3e0fe0431de178ac3fc515af9bf3e70444a5a3e4e906f16978d70db7399bd811",
+    "bytes": 89090,
+    "sha256": "e1d6f5c9a0fcae052abfd24d15f6ea38ee1d908e4316e0688dfeadd34847ff49",
     "source": "FuxWX native Windows private-desktop screenshot using generated fixtures",
     "license": "MIT",
     "reason": "Public screenshot without machine paths or private files"

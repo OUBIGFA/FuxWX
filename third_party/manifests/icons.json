@@ -42,13 +42,6 @@
     "license": "CC-BY-4.0"
   },
   {
-    "path": "assets/icons/solar/info-circle.svg",
-    "source": "packages/core/svgs/ui/Linear/info-circle.svg",
-    "bytes": 379,
-    "sha256": "57acd8e8a15528ce6fc2e654fa61daa4ef8069222eb063926e2d4a1417978742",
-    "license": "CC-BY-4.0"
-  },
-  {
     "path": "assets/icons/solar/trash-bin-minimalistic.svg",
     "source": "packages/core/svgs/ui/Linear/trash-bin-minimalistic.svg",
     "bytes": 786,

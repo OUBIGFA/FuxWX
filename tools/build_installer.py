@@ -6,6 +6,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+from installer_languages import localize
 
 ROOT = Path(__file__).resolve().parents[1]
 metadata = json.loads((ROOT / "nsh.json").read_text(encoding="utf-8"))
@@ -31,6 +32,8 @@ compiler = shutil.which("ISCC")
 if not compiler or not script.is_file():
     raise SystemExit("Inno Setup 6 or generated package script is missing")
 # nsh generates the script; compile it again after adding the license files.
+languages = localize(script, Path(compiler), ROOT / "assets/installer/languages")
+print(f"Installer languages: {len(languages)}; follows Windows display language")
 run(compiler, "/Qp", "/O" + str(script.parent), str(script))
 built = ROOT / "dist/package/FuxWX-setup.exe"
 if not built.is_file():

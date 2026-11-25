@@ -4,3 +4,5 @@
 *.ico binary
 # Preserve upstream license text, including its original whitespace
 third_party/licenses/* -whitespace
+# Preserve the official translation files verbatim
+assets/installer/languages/* -whitespace
