@@ -7,6 +7,7 @@ import shutil
 import subprocess
 import sys
 from installer_languages import localize
+from windows_icons import embed
 
 ROOT = Path(__file__).resolve().parents[1]
 metadata = json.loads((ROOT / "nsh.json").read_text(encoding="utf-8"))
@@ -25,8 +26,15 @@ if runtime_lock.is_file():
     shutil.copy2(runtime_lock, ROOT / ".nsh/rust/Cargo.lock")
 run("nsh", "package", "--target", "windows", "-o", "dist/package")
 package = ROOT / "dist/package/FuxWX"
+icon = ROOT / "dist/icons/FuxWX.ico"
+shutil.copy2(icon, package / "nsh/icon.ico")
+embed(package / "FuxWX.exe", icon)
+run(sys.executable, "-m", "unittest", "discover", "-s", "tests/icons", "-v")
+run(sys.executable, "tools/test_window_icons.py")
 run(sys.executable, "tools/generate_notices.py", str(package / "THIRD_PARTY_NOTICES.txt"))
 shutil.copy2(ROOT / "LICENSE", package / "LICENSE.txt")
+# Keep the portable archive consistent with the corrected executable and notices.
+shutil.make_archive(str(package), "zip", package.parent, package.name)
 script = ROOT / "dist/package/FuxWX.iss"
 compiler = shutil.which("ISCC")
 if not compiler or not script.is_file():

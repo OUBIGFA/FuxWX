@@ -20,6 +20,7 @@
 5. `python tools/desktop_test.py tests/desktop/flow.test.tsx`：私有 Windows 桌面上的真实界面交互；不会切换用户桌面。脚本生成当前测试的数据和配置，再交给 nsh 的真实界面测试驱动
 6. `python tools/test_installer.py`：将本地测试安装器安装到本次临时目录，在私有桌面启动、检查响应并卸载。若发现已有 FuxWX 安装，保留它并停止此验收
 7. `python tools/test_installer_languages.py`：在私有桌面读取实际安装器语言和窗口，覆盖系统自动选择、英文、简体中文和繁体中文；只打开向导，不执行安装，可与用户已有安装共存
+8. `python tools/test_window_icons.py`：启动打包后的程序并读取实际标题栏与任务栏图标尺寸；验证 100%–300% 缩放下的图标资源及浅色、深色合成。只操作私有桌面中的测试实例
 
 回收站验证是显式测试，用本项目 `_temp/` 下生成的数据验证移入及恢复。运行前设置 `FUXWX_TEST_ROOT`，并将 `FUXWX_RECYCLE_BIN` 设为测试磁盘当前用户的回收站目录，执行 `cargo test --manifest-path crates/fuxwx-native/Cargo.toml --no-default-features windows_recycle_batch_is_restorable -- --ignored --nocapture`。测试仅恢复原路径属于本次临时目录的项目。不得把测试目录变量指向真实微信目录。
 
@@ -36,3 +37,9 @@
 列表使用 nsh List 的原生虚拟化。后台清理每批最多 64 个文件；界面每 150 毫秒读取一次小型状态。清理期间不逐文件重建列表，完成后一次更新结果。
 
 底部更新检查只在点击时访问 GitHub latest Release，按三段版本号比较，10 秒超时；不存在正式版、限流、网络错误均明确显示，不自动下载或安装。版本号读取 nsh.json。安装器通过 tools/installer_languages.py 加入官方语言包，采用 Inno 的 LanguageDetectionMethod=uilanguage、UsePreviousLanguage=no 和 ShowLanguageDialog=no。
+
+## Windows 图标
+
+nsh 0.7.0 打包时会再次缩放 PNG 的直通 RGBA，让透明黑色混入边缘；其打包窗口默认只提供 32px 窗口类图标。本项目保留上游稳定版，通过构建脚本把从原图生成的 17 个 ICO 帧直接写入程序资源，窗口打开和显示变化时显式设置独立的小图标和大图标。程序、安装器和便携 ZIP 使用同一份 ICO。
+
+`tests/icons/` 在每次打包中检查实际 ICO 和 exe 资源，验证尺寸、原图缩放结果和透明边缘。`tools/test_window_icons.py` 验证实际 Windows 取图及绘制结果；真实窗口 DPI 和模拟资源加载的 DPI 分别记录，不把资源测试称为跨显示器验收。

@@ -57,6 +57,9 @@ function App() {
   cleanup(() => { disposed = true; clearInterval(timer); });
   request<string | null>("default").then(value => { if (value && !disposed && !pathTouched && !path()) path.set(value); }).catch(e => message.set(String(e)));
   poll();
+  // Initial window creation does not emit a bounds-change event in nsh 0.7.0.
+  // This native action runs on the UI thread after the mount commit.
+  Cleaner.syncWindowIcons();
 
   async function run(action: () => Promise<void>) {
     if (busy()) return;
@@ -224,4 +227,5 @@ function App() {
   </View>;
 }
 
-mount(() => <Window id="main" title="FuxWX" defaultSize={{ width: 1160, height: 780 }} minSize={{ width: 920, height: 640 }}>{App}</Window>);
+mount(() => <Window id="main" title="FuxWX" defaultSize={{ width: 1160, height: 780 }} minSize={{ width: 920, height: 640 }}
+  onBoundsChange={() => Cleaner.syncWindowIcons()} onDisplayChange={() => Cleaner.syncWindowIcons()}>{App}</Window>);

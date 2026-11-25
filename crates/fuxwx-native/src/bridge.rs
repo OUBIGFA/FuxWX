@@ -286,6 +286,12 @@ fn pick_folder() -> Result<Option<String>, String> {
 pub struct Cleaner;
 #[module]
 impl Cleaner {
+    /// Select native caption/taskbar icon frames after the window opens or changes DPI.
+    pub fn sync_window_icons(cx: &mut ModuleCx) {
+        #[cfg(windows)]
+        drop(cx.run_on_main_thread(crate::window_icons::sync));
+    }
+
     /// Run an operation off the UI thread. Results and errors are explicit.
     pub async fn request(route: String, body: String) -> Result<String, String> {
         blocking(move || dispatch(&route, &body))

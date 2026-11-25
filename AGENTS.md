@@ -5,6 +5,8 @@
 - 产品名固定为 FuxWX，基于 WxCleaner 的重复文件识别与清理流程二次开发，采用 nsh 原生界面，首版面向 Windows
 - 图标按需采用 Solar Linear；保留 Solar Icons / 480 Design 署名与第三方许可
 - 品牌图固定为 assets/branding/FuxWX_logo.png，来自用户提供的原图；保留 dist/FuxWX_logo.png，派生 PNG、ICO、ICNS 用 tools/generate_icons.py 生成到 dist/icons/
+- Windows ICO 从原图一次缩放生成 17 个尺寸，透明边缘必须按预乘透明度过滤；打包通过 tools/windows_icons.py 写入并回读验证程序资源，不使用 nsh 再次缩放生成的图标
+- 标题栏和任务栏图标在窗口打开及屏幕缩放变化后分别按 DPI 选取；nsh 升级时复核是否还需要 crates/fuxwx-native/src/window_icons.rs 的兼容处理
 - 本次已授权创建公开仓库并实施迁移、提交项目源码和生成本地测试安装器；创建 tag、Release 和后续对外发布需单独授权
 - 采用独立历史、main 分支、MIT 许可；移植来源固定到提交并登记，保留原始版权
 - 项目约定随实现更新；不得把计划功能描述成已经实现

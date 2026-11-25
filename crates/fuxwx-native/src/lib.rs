@@ -6,6 +6,8 @@ pub use scanner::{Entry, Failure, Group, Progress, Scan, scan};
 
 #[cfg(feature = "native")]
 mod bridge;
+#[cfg(all(feature = "native", windows))]
+mod window_icons;
 
 #[cfg(feature = "native")]
 use nsh_core::prelude::*;
