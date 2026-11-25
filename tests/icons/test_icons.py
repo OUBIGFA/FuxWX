@@ -18,9 +18,11 @@ class IconQuality(unittest.TestCase):
                     self.assertIn((size, size), ico.ico.sizes())
                     actual = ico.ico.getimage((size, size)).convert("RGBA")
                     expected = ImageOps.contain(source, (size, size), Image.Resampling.LANCZOS)
-                    # Compare every RGBA channel against the current source. This
-                    # catches darkened alpha edges without fixing the brand's hue.
-                    self.assertEqual(actual.tobytes(), expected.tobytes())
+                    # Compare opacity and visible color against the current source.
+                    # Transparent compositing clears hidden RGB in zero-alpha pixels;
+                    # those invisible bytes must not make a new brand color fail.
+                    self.assertEqual(actual.getchannel("A").tobytes(), expected.getchannel("A").tobytes())
+                    self.assertEqual(actual.convert("RGBa").tobytes(), expected.convert("RGBa").tobytes())
 
     def test_executable_contains_the_same_frames(self):
         verify(ROOT / "dist/package/FuxWX/FuxWX.exe", ROOT / "dist/icons/FuxWX.ico")
