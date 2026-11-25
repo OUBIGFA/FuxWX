@@ -1,9 +1,9 @@
 [
   {
     "path": "assets/branding/FuxWX_logo.png",
-    "bytes": 39353,
-    "sha256": "06ae266c629a0f57f9a9c1bff2eae34ff4f9143749616f66e57e7e47469bf3a5",
-    "source": "User-provided FuxWX project logo, supplied 2026-11-25",
+    "bytes": 41715,
+    "sha256": "44f0569b9902f7b75cb7f58c8d778f918473fdb48aae312ca31cd642109362e4",
+    "source": "User-provided FuxWX project logo, color revision supplied 2026-11-25",
     "license": "LicenseRef-FuxWX-Brand",
     "reason": "Branding explicitly provided for this public project"
   },
