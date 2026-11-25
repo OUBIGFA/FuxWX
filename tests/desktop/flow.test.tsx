@@ -17,6 +17,8 @@ test("scans, virtualizes, cancels confirmation, then removes only duplicate copi
   await app.press("text:收起");
   await app.press("id:select-duplicates");
   expect(app.enabled("id:clean")).toBe(true);
+  // Public screenshots must not show this machine's fixture path.
+  await app.clear("id:folder-path");
   await app.screenshot(`${fixture.reports}/FuxWX-main.png`);
   await app.setViewport(960, 660);
   await app.screenshot(`${fixture.reports}/FuxWX-compact.png`);
@@ -32,6 +34,7 @@ test("scans, virtualizes, cancels confirmation, then removes only duplicate copi
   await app.press("id:clean");
   await app.waitFor("text:成功 81 个 · 失败 0 个 · 未处理 0 个", { timeout: 20000 });
   expect(app.enabled("id:clean")).toBe(false);
+  await app.clear("id:folder-path");
   await app.screenshot(`${fixture.reports}/FuxWX-complete.png`);
 }, 60000);
 

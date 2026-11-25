@@ -15,9 +15,11 @@ test("starts with safe cleanup mode and a clear empty state", async () => {
 const latest = "GET https://api.github.com/repos/OUBIGFA/FuxWX/releases/latest";
 for (const [name, response, expected] of [
   ["no release", { status: 404 }, "暂无正式发布版本"],
-  ["current", { body: { tag_name: "v0.1.0", prerelease: false, draft: false } }, "已是最新正式版本 0.1.0"],
-  ["older release", { body: { tag_name: "v0.0.9", prerelease: false, draft: false } }, "当前版本 0.1.0 高于最新正式版本 0.0.9"],
-  ["new release", { body: { tag_name: "v0.2.0", prerelease: false, draft: false } }, "发现新版本 0.2.0"],
+  ["current", { body: { tag_name: "0.1.0", prerelease: false, draft: false } }, "已是最新正式版本 0.1.0"],
+  ["current with v prefix", { body: { tag_name: "v0.1.0", prerelease: false, draft: false } }, "已是最新正式版本 0.1.0"],
+  ["older release", { body: { tag_name: "0.0.9", prerelease: false, draft: false } }, "当前版本 0.1.0 高于最新正式版本 0.0.9"],
+  ["new release", { body: { tag_name: "0.2.0", prerelease: false, draft: false } }, "发现新版本 0.2.0"],
+  ["prerelease", { body: { tag_name: "0.2.0-beta.1", prerelease: true, draft: false } }, "发布版本号无法识别，请到仓库查看"],
   ["rate limited", { status: 403 }, "检查失败（HTTP 403），请稍后重试"],
   ["offline", { error: "offline" }, "无法检查更新，请检查网络后重试"],
   ["invalid version", { body: { tag_name: "nightly", prerelease: false, draft: false } }, "发布版本号无法识别，请到仓库查看"],
@@ -29,7 +31,7 @@ for (const [name, response, expected] of [
     expect(app.requests().length).toBe(1);
     if (name === "new release") {
       await app.press("id:view-release");
-      expect(app.openedUrls()).toEqual(["https://github.com/OUBIGFA/FuxWX/releases/tag/v0.2.0"]);
+      expect(app.openedUrls()).toEqual(["https://github.com/OUBIGFA/FuxWX/releases/tag/0.2.0"]);
     }
   });
 }
