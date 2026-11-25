@@ -1,0 +1,18 @@
+[
+  {
+    "path": "assets/branding/FuxWX_logo.png",
+    "bytes": 39353,
+    "sha256": "06ae266c629a0f57f9a9c1bff2eae34ff4f9143749616f66e57e7e47469bf3a5",
+    "source": "User-provided FuxWX project logo, supplied 2026-11-25",
+    "license": "LicenseRef-FuxWX-Brand",
+    "reason": "Branding explicitly provided for this public project"
+  },
+  {
+    "path": "assets/screenshots/FuxWX.png",
+    "bytes": 91041,
+    "sha256": "3e0fe0431de178ac3fc515af9bf3e70444a5a3e4e906f16978d70db7399bd811",
+    "source": "FuxWX native Windows private-desktop screenshot using generated fixtures",
+    "license": "MIT",
+    "reason": "Public screenshot without machine paths or private files"
+  }
+]

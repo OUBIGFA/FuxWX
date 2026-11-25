@@ -4,6 +4,7 @@
 
 - 产品名固定为 FuxWX，基于 WxCleaner 的重复文件识别与清理流程二次开发，采用 nsh 原生界面，首版面向 Windows
 - 图标按需采用 Solar Linear；保留 Solar Icons / 480 Design 署名与第三方许可
+- 品牌图固定为 assets/branding/FuxWX_logo.png，来自用户提供的原图；保留 dist/FuxWX_logo.png，派生 PNG、ICO、ICNS 用 tools/generate_icons.py 生成到 dist/icons/
 - 本次已授权创建公开仓库并实施迁移、提交项目源码和生成本地测试安装器；创建 tag、Release 和后续对外发布需单独授权
 - 采用独立历史、main 分支、MIT 许可；移植来源固定到提交并登记，保留原始版权
 - 项目约定随实现更新；不得把计划功能描述成已经实现
@@ -15,6 +16,7 @@
 - 更新版本时同步配置、锁文件、第三方登记与受影响验证；兼容失败记录证据，不静默降级
 - 跟进稳定版本是开发约定，不代表授权定时任务或自动发布
 - 测试安装器统一写入 dist/releases/FuxWX-<版本>.exe，更新同版本文件；版本号仅在正式发布或明确要求时调整
+- 版本号唯一来源为 nsh.json 的 version；构建入口为 python tools/build_installer.py，开始前运行 . ./tools/env.ps1
 
 ## 删除与界面
 
@@ -33,3 +35,5 @@
 - 不提交凭据、机器绝对路径、真实微信文件、日志、缓存、安装器和截图验收记录
 - 项目规划见 docs/repository-plan.md；迁移与验收状态见 docs/migration.md
 - 收尾检查暂存内容、跟踪清单、来源许可及受影响功能，运行必要测试和打包；构建成功不能代替界面和删除性能验收
+- 统一检查：python tools/check.py、nsh check、nsh test；界面改动用 python tools/desktop_test.py tests/desktop/flow.test.tsx，安装器用 python tools/test_installer.py 验证
+- 仓库维护跟踪 crates/fuxwx-native/Cargo.lock、nsh.lock 和 tools/locks/nsh-runtime-Cargo.lock；依赖升级时由工具生成锁文件并同步第三方登记，禁止手改生成内容

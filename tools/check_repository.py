@@ -110,6 +110,11 @@ def check(root):
                     relative = ""
                 if relative not in blobs:
                     errors.append(f"{name}: missing staged link target {target}")
+    if "third_party/manifests/icons.json" in blobs:
+        for entry in json.loads(blobs["third_party/manifests/icons.json"]):
+            data = blobs.get(entry["path"])
+            if data is None or len(data) != entry["bytes"] or hashlib.sha256(data).hexdigest() != entry["sha256"]:
+                errors.append(f"{entry['path']}: Solar source registration mismatch")
     return errors
 
 

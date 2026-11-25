@@ -16,3 +16,14 @@ jobs:
       - run: python tools/check.py
         env:
           PYTHONUTF8: '1'
+  core:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: '1.100.0'
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: crates/fuxwx-native
+      - run: cargo test --manifest-path crates/fuxwx-native/Cargo.toml --locked --no-default-features

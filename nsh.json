@@ -1,0 +1,12 @@
+{
+  "name": "FuxWX",
+  "id": "io.github.oubigfa.fuxwx",
+  "version": "0.1.0",
+  "build": 1,
+  "entry": "app/App.tsx",
+  "icon": "dist/icons/FuxWX.png",
+  "appearance": "light",
+  "dependencies": {
+    "fuxwx-native": { "path": "crates/fuxwx-native" }
+  }
+}

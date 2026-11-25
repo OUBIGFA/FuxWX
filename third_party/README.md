@@ -10,4 +10,6 @@ FuxWX 保留实际移植的源码、运行依赖和图标的来源与许可。�
 
 Solar Icons Set 由 [480 Design](https://www.figma.com/community/file/1166831539721848736) 设计，包装由 Hakim Saoudi 维护。图标按 CC BY 4.0 使用，并在应用关于信息中署名。
 
-固定输入、校验值和修改范围记录于 manifests/sources.json，许可证正文保存在 licenses/。依赖安装后依据锁文件更新传递依赖登记，打包时一并附带 notices。
+固定输入、校验值和修改范围记录于 manifests/sources.json，实际使用的图标在 manifests/icons.json。Rust 传递依赖在 manifests/rust-dependencies.json，许可证正文保存在 licenses/，打包时汇集为 THIRD_PARTY_NOTICES.txt。
+
+品牌图由用户于 2026-11-25 提供用于 FuxWX，属于项目品牌资源（LicenseRef-FuxWX-Brand），不属于 Solar 图标集。源文件和公开截图在 binaries.json 中登记；派生图标只写入 dist/icons/。

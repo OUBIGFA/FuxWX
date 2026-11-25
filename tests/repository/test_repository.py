@@ -14,7 +14,9 @@ SPEC.loader.exec_module(CHECK)
 
 class RepositoryTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory()
+        work = ROOT / "_temp" / "repository-tests"
+        work.mkdir(parents=True, exist_ok=True)
+        self.temp = tempfile.TemporaryDirectory(dir=work)
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         self.git("init", "-q")
