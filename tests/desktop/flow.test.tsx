@@ -8,6 +8,7 @@ test("scans, virtualizes, cancels confirmation, then removes only duplicate copi
   await app.clear("id:folder-path");
   await app.type("id:folder-path", folder);
   await app.press("id:scan");
+  await app.waitFor("id:select-duplicates", { timeout: 20000 });
   await app.waitUntil(() => app.enabled("id:select-duplicates"), { timeout: 20000 });
   expect(app.count("role:checkbox")).toBeLessThan(50);
   await app.press("text:示例图片.png");

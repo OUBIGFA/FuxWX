@@ -2,12 +2,22 @@ import { cleanup, Image, openUrl, signal, Text, View } from "nsh";
 import { Button } from "nsh/base";
 import github from "../assets/icons/github/mark-github.svg";
 import config from "../nsh.json";
+import { Icon, palette } from "./ui";
+import type { Status } from "./types";
 
 const repository = "https://github.com/OUBIGFA/FuxWX";
 const latestRelease = "https://api.github.com/repos/OUBIGFA/FuxWX/releases/latest";
 
-/** Repository actions stay separate from the scan/delete task state. */
-export function Footer() {
+type FooterProps = {
+  status: Status;
+  busy: boolean;
+  skippedCount: number;
+  onCancel: () => void;
+  onShowDetails: () => void;
+};
+
+/** Compact desktop status and repository footer bar. */
+export function Footer(p: FooterProps) {
   const checking = signal(false);
   const note = signal("");
   const releaseUrl = signal("");
@@ -20,6 +30,7 @@ export function Footer() {
       if (!(await openUrl(url)).opened) note.set("无法打开浏览器，请复制仓库地址访问");
     } catch { note.set("无法打开浏览器，请复制仓库地址访问"); }
   }
+
   async function checkUpdate() {
     if (checking()) return;
     checking.set(true); note.set(""); releaseUrl.set("");
@@ -53,22 +64,46 @@ export function Footer() {
     finally { clearTimeout(timeout); if (!closed) checking.set(false); }
   }
 
-  return <View class="gap-2" style={{ borderTopWidth: 1, borderTopColor: "#d6dcd7", paddingTop: 10 }}>
-    <View class="flex-row items-center justify-between">
-      <Button testID="repository" onPress={() => visit(repository)} class="flex-row items-center gap-2 hover:opacity-70" accessibilityLabel="打开 GitHub 仓库">
-        <Image src={github} style={{ width: 16, height: 16, tintColor: "#52645b" }} />
-        <Text style={{ fontSize: 12, color: "#52645b" }}>github.com/OUBIGFA/FuxWX</Text>
-      </Button>
-      <View class="flex-row items-center gap-4">
-        <Text style={{ fontSize: 12, color: "#68756c" }}>{`v${config.version}`}</Text>
-        <Button testID="check-update" disabled={checking()} onPress={checkUpdate} class="hover:opacity-70 disabled:opacity-50">
-          <Text style={{ fontSize: 13, color: "#2d5141" }}>{checking() ? "正在检查…" : "检查更新"}</Text>
+  const statusText = () => {
+    const phase = p.status.phase || "准备就绪";
+    if (!p.status.busy) return phase;
+    return `${phase} · ${p.status.done}${p.status.total ? ` / ${p.status.total}` : " 个文件"}`;
+  };
+
+  return <View class="px-6 py-2 gap-1.5" style={{ backgroundColor: palette.surface, borderTopWidth: 1, borderTopColor: palette.borderSubtle }}>
+    <View class="flex-row items-center justify-between gap-4">
+      <View class="flex-row items-center gap-3 flex-1" style={{ minWidth: 0 }}>
+        <Button testID="repository" onPress={() => visit(repository)} class="flex-row items-center gap-1.5 hover:opacity-75" accessibilityLabel="打开 GitHub 仓库">
+          <Image src={github} style={{ width: 15, height: 15, tintColor: palette.inkSecondary }} />
+          <Text style={{ fontSize: 12, color: palette.inkSecondary }}>github.com/OUBIGFA/FuxWX</Text>
+        </Button>
+        <Text style={{ fontSize: 12, color: palette.borderControl }}>·</Text>
+        <Text style={{ fontSize: 12, color: palette.inkMuted, numberOfLines: 1 }}>{statusText()}</Text>
+        {p.busy
+          ? <Button testID="cancel" onPress={p.onCancel} class="flex-row items-center gap-1 hover:opacity-75">
+              <Icon name="stop" size={14} color={palette.danger} />
+              <Text style={{ fontSize: 12, color: palette.danger, fontWeight: "500" }}>停止任务</Text>
+            </Button>
+          : p.skippedCount > 0
+            ? <Button onPress={p.onShowDetails} class="hover:opacity-75">
+                <Text style={{ fontSize: 12, color: palette.danger }}>{`跳过 ${p.skippedCount} 项`}</Text>
+              </Button>
+            : null}
+      </View>
+
+      <View class="flex-row items-center gap-3">
+        <Text style={{ fontSize: 12, color: palette.inkMuted }}>{`v${config.version}`}</Text>
+        <Button testID="check-update" disabled={checking()} onPress={checkUpdate} class="hover:opacity-75 disabled:opacity-50">
+          <Text style={{ fontSize: 12, color: palette.accent, fontWeight: "500" }}>{checking() ? "正在检查…" : "检查更新"}</Text>
         </Button>
       </View>
     </View>
-    {note() ? <View class="flex-row items-center justify-between gap-3">
-      <Text style={{ fontSize: 12, color: "#52645b", flex: 1, numberOfLines: 2 }}>{note()}</Text>
-      {releaseUrl() ? <Button testID="view-release" onPress={() => visit(releaseUrl())}><Text style={{ fontSize: 13, color: "#2d5141" }}>查看新版本</Text></Button> : null}
+
+    {note() ? <View class="flex-row items-center justify-between gap-3 pt-1" style={{ borderTopWidth: 1, borderTopColor: palette.borderSubtle }}>
+      <Text style={{ fontSize: 12, color: palette.inkSecondary, flex: 1, numberOfLines: 2 }}>{note()}</Text>
+      {releaseUrl() ? <Button testID="view-release" onPress={() => visit(releaseUrl())} class="hover:opacity-75">
+        <Text style={{ fontSize: 12, color: palette.accent, fontWeight: "500" }}>查看新版本</Text>
+      </Button> : null}
     </View> : null}
   </View>;
 }
