@@ -28,7 +28,7 @@ for path in sorted((ROOT / "third_party/licenses").glob("*")):
 parts.append("Solar Linear icons: Solar Icons Set by 480 Design (CC BY 4.0); package by Hakim Saoudi (MIT)\nhttps://github.com/saoudi-h/solar-icons\nFunctional icons are tinted for FuxWX. The separate FuxWX logo was supplied by the project owner (LicenseRef-FuxWX-Brand).")
 records = []
 missing = []
-for key in sorted(used, key=lambda key: packages[key]["name"]):
+for key in sorted(used, key=lambda key: (packages[key]["name"], packages[key]["version"], key)):
     p = packages[key]
     if p["source"] is None:
         continue
