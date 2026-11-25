@@ -1,0 +1,64 @@
+[
+  {
+    "name": "WxCleaner",
+    "version": "414dd2ed24492b90b017aff5611c6843f42d8059",
+    "url": "https://github.com/yqxie1991/WxCleaner",
+    "license": "MIT",
+    "licenseFile": "third_party/licenses/WxCleaner-MIT.txt",
+    "consumer": "Rust scanner and cleanup workflow",
+    "changes": "Port size/partial/full SHA-256 algorithm; replace Tk UI and per-file UI updates",
+    "inputs": [
+      {
+        "name": "scanner.py",
+        "bytes": 4963,
+        "sha256": "1f87ec47ba4f4ca75cbff3ae88ebeb3877422a5a28e58791f491cc6dac929182"
+      },
+      {
+        "name": "wx_gui.py",
+        "bytes": 18957,
+        "sha256": "876fe7b3b5853ea026883dc03c8ef081dc305c4c0c4a65db23ff205954a9e3f5"
+      },
+      {
+        "name": "platform_utils.py",
+        "bytes": 2016,
+        "sha256": "55ce66d761f9c8519d08afb2ba818b0b81ce1bce7100617150e68270b7ac7291"
+      }
+    ]
+  },
+  {
+    "name": "nsh",
+    "version": "0.7.0",
+    "revision": "3f8ecd8b3c55ad6274c6babbf7ee55c4cd4ae359",
+    "url": "https://github.com/longbridge/nsh",
+    "download": "https://github.com/longbridge/nsh/releases/download/v0.7.0/nsh-windows-x86_64.zip",
+    "license": "Apache-2.0",
+    "licenseFile": "third_party/licenses/nsh-Apache-2.0.txt",
+    "consumer": "native UI runtime and CLI",
+    "changes": "none",
+    "inputs": [
+      {
+        "name": "nsh-windows-x86_64-0.7.0.zip",
+        "bytes": 85168834,
+        "sha256": "1c6ef86afe754198209fd452625f20f32077ecfca3a4431f960a411b0e51d8f3"
+      }
+    ]
+  },
+  {
+    "name": "Solar Icons",
+    "version": "ab241e1bf578dcfe45b0197aee59bd9a08b5fe68",
+    "url": "https://github.com/saoudi-h/solar-icons",
+    "download": "https://codeload.github.com/saoudi-h/solar-icons/tar.gz/ab241e1bf578dcfe45b0197aee59bd9a08b5fe68",
+    "license": "MIT AND CC-BY-4.0",
+    "licenseFile": "third_party/licenses/Solar-CC-BY-4.0.txt",
+    "consumer": "selected Linear SVG icons",
+    "attribution": "Solar Icons by 480 Design; package by Hakim Saoudi",
+    "changes": "selected icons only; app applies foreground color",
+    "inputs": [
+      {
+        "name": "solar-icons-ab241e1bf578dcfe45b0197aee59bd9a08b5fe68.tar.gz",
+        "bytes": 19355865,
+        "sha256": "3a2a416eda190d089eab9283cd99f2f1896ff9005e86fbe0e18195e477a0a4ba"
+      }
+    ]
+  }
+]

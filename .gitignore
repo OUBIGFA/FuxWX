@@ -1,0 +1,23 @@
+# Local tools, upstream references and private state
+.local/
+.nsh/
+.venv/
+node_modules/
+target/
+__pycache__/
+.idea/
+.vscode/
+.agents/
+.codex/
+.env
+.env.*
+
+# Generated packages, screenshots and reports
+/dist/
+output/
+*.log
+Thumbs.db
+.DS_Store
+
+# Keep last, after every negated rule
+**/_temp/

@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.svg text
+*.png binary
+*.ico binary
+# Preserve upstream license text, including its original whitespace
+third_party/licenses/* -whitespace
