@@ -156,7 +156,7 @@ export function NavItem(p: {
       activeStyle={{ opacity: 0.78 }}
     >
       <View class="flex-row items-center gap-2 flex-1" style={{ minWidth: 0 }}>
-        <Icon name={p.icon} size={15} color={p.active ? palette.ink : palette.inkMuted} />
+        <Icon name={p.icon} size={16} color={p.active ? palette.ink : palette.inkSecondary} />
         <Text
           style={{
             fontSize: 13,

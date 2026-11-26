@@ -369,7 +369,6 @@ function App() {
     <View style={{ flex: 1, backgroundColor: palette.canvas }}>
       {/* Integrated custom window title bar keeping clear of native caption controls */}
       <TitleBar
-        class="px-3 gap-2"
         style={{
           height: 38,
           backgroundColor: palette.chrome,
@@ -377,23 +376,35 @@ function App() {
           borderBottomColor: palette.border,
         }}
       >
-        <IconButton
-          id="toggle-sidebar"
-          icon="panelLeftClose"
-          accessibilityLabel="切换侧边栏"
-          onPress={() => sidebarOpen.update((v) => !v)}
-        />
-        <View class="flex-row items-center gap-1.5">
-          <Text style={{ fontSize: 12.5, color: palette.inkMuted }}>扫描工作区</Text>
-          <Text style={{ fontSize: 12.5, color: palette.borderControl }}>/</Text>
-          <Text style={{ fontSize: 12.5, fontWeight: "500", color: palette.ink }}>{currentMeta().title}</Text>
+        <View class="flex-1 flex-row items-center px-3 gap-2" style={{ minWidth: 0 }}>
+          <IconButton
+            id="toggle-sidebar"
+            icon="panelLeftClose"
+            accessibilityLabel="切换侧边栏"
+            onPress={() => sidebarOpen.update((v) => !v)}
+          />
+          <View class="flex-row items-center gap-1.5" style={{ flexShrink: 0 }}>
+            <Text style={{ fontSize: 12.5, color: palette.inkMuted }}>扫描工作区</Text>
+            <Text style={{ fontSize: 12.5, color: palette.borderControl }}>/</Text>
+            <Text style={{ fontSize: 12.5, fontWeight: "500", color: palette.ink }}>{currentMeta().title}</Text>
+          </View>
+          <View class="flex-1" />
+          {busy() ? (
+            <Text
+              testID="titlebar-status"
+              style={{
+                fontSize: 12,
+                color: palette.inkMuted,
+                fontVariant: ["tabular-nums"],
+                numberOfLines: 1,
+                flexShrink: 1,
+                marginRight: 4,
+              }}
+            >
+              {`${status().phase || "正在处理"}${status().total ? ` · ${status().done} / ${status().total}` : ""}`}
+            </Text>
+          ) : null}
         </View>
-        <View class="flex-1" />
-        {busy() ? (
-          <Text style={{ fontSize: 12, color: palette.inkMuted, fontVariant: ["tabular-nums"], marginRight: 6 }}>
-            {`${status().phase || "正在处理"}${status().total ? ` · ${status().done} / ${status().total}` : ""}`}
-          </Text>
-        ) : null}
       </TitleBar>
 
       {/* Main split workspace: Sidebar + Content + Optional Inspector */}
@@ -419,7 +430,7 @@ function App() {
           >
             <View class="flex-row items-center justify-between gap-3">
               <View class="gap-0.5 flex-1" style={{ minWidth: 0 }}>
-                <Text style={{ fontSize: 18, fontWeight: "600", color: palette.ink }}>{currentMeta().title}</Text>
+                <Text style={{ fontSize: 18, fontWeight: "600", color: palette.ink, numberOfLines: 1 }}>{currentMeta().title}</Text>
                 <Text style={{ fontSize: 13, color: palette.inkMuted, fontVariant: ["tabular-nums"], numberOfLines: 1 }}>
                   {groups().length > 0
                     ? `共 ${groups().length} 组重复 · 可释放 ${size(reclaimable())}`
@@ -428,7 +439,7 @@ function App() {
               </View>
 
               {groups().length > 0 ? (
-                <View class="flex-row items-center gap-2">
+                <View class="flex-row items-center gap-2" style={{ flexShrink: 0 }}>
                   <ActionButton id="sort-groups" label={sortLabels[sortKey()]} icon="sort" size="sm" onPress={cycleSort} disabled={busy()} />
                   <ActionButton id="select-duplicates" label="选择重复项" size="sm" onPress={selectDuplicates} disabled={busy()} />
                   <ActionButton
@@ -608,7 +619,7 @@ function App() {
                               : palette.accent
                             : palette.canvas,
                         }}
-                        indicator={isSelected() ? <Icon name="check" color="#ffffff" size={13} /> : null}
+                        indicator={isSelected() ? <Icon name="check" color="#ffffff" size={14} /> : null}
                       />
 
                       <View
@@ -713,7 +724,7 @@ function App() {
                   borderColor: palette.border,
                 }}
               >
-                <Icon name={result() && !hasFilters() ? "shield" : "copy"} size={26} color={palette.inkMuted} />
+                <Icon name={result() && !hasFilters() ? "shield" : "copy"} size={28} color={palette.inkMuted} />
               </View>
               <View class="items-center gap-1">
                 <Text style={{ fontSize: 16, fontWeight: "600", color: palette.ink }}>
@@ -875,6 +886,7 @@ mount(() => (
     title="FuxWX"
     defaultSize={{ width: 1160, height: 780 }}
     minSize={{ width: 920, height: 640 }}
+    restoreBounds
     titleBar={{ style: "hidden", height: 38 }}
     onBoundsChange={() => Cleaner.syncWindowIcons()}
     onDisplayChange={() => Cleaner.syncWindowIcons()}

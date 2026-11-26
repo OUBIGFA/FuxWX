@@ -9,6 +9,7 @@
   "window": {
     "defaultSize": { "width": 1160, "height": 780 },
     "minSize": { "width": 920, "height": 640 },
+    "restoreBounds": true,
     "titleBar": { "style": "hidden", "height": 38 }
   },
   "dependencies": {

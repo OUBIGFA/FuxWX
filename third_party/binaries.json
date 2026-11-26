@@ -9,16 +9,16 @@
   },
   {
     "path": "assets/screenshots/FuxWX-main.png",
-    "bytes": 167289,
-    "sha256": "5f353f0c746fb621ed97e7f5c3bc976a16784b583d3bec49e9e6e976fb685c56",
+    "bytes": 168148,
+    "sha256": "288e3e32662419800306efe6f5935e1836e903788253b67b1d8479bbadb1ff86",
     "source": "FuxWX native Windows private-desktop screenshot using generated fixtures",
     "license": "MIT",
     "reason": "Public screenshot without machine paths or private files"
   },
   {
     "path": "assets/screenshots/FuxWX-complete.png",
-    "bytes": 103754,
-    "sha256": "f88c0d40acae5d7d37959624381083ba937d056b7a301504c7d1f6b50da79d7d",
+    "bytes": 104273,
+    "sha256": "6523b1e964a1c7055eba5214b621f06948f77e89dc7d22e389033e14cd06ec26",
     "source": "FuxWX native Windows private-desktop screenshot using generated fixtures",
     "license": "MIT",
     "reason": "Public screenshot without machine paths or private files"

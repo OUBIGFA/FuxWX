@@ -1,6 +1,5 @@
-import { cleanup, Image, openUrl, signal, Text, View } from "nsh";
+import { cleanup, openUrl, signal, Text, View } from "nsh";
 import { Button } from "nsh/base";
-import github from "../assets/icons/github/mark-github.svg";
 import config from "../nsh.json";
 import type { Status } from "./types";
 import { Icon, metrics, palette } from "./ui";
@@ -115,7 +114,7 @@ export function Footer(p: FooterProps) {
             activeStyle={{ opacity: 0.72 }}
             accessibilityLabel="打开 GitHub 仓库"
           >
-            <Image src={github} style={{ width: 14, height: 14, tintColor: palette.inkSecondary }} />
+            <Icon name="github" size={14} color={palette.inkSecondary} />
             <Text style={{ fontSize: 12, color: palette.inkSecondary }}>github.com/OUBIGFA/FuxWX</Text>
           </Button>
           <Text style={{ fontSize: 12, color: palette.borderControl }}>·</Text>
@@ -159,7 +158,7 @@ export function Footer(p: FooterProps) {
             activeStyle={checking() ? undefined : { opacity: 0.72 }}
             disabledStyle={{ opacity: 0.5 }}
           >
-            <Icon name="refresh" size={13} color={palette.accent} />
+            <Icon name="refresh" size={14} color={palette.accent} />
             <Text style={{ fontSize: 12, color: palette.accent, fontWeight: "500" }}>
               {checking() ? "正在检查…" : "检查更新"}
             </Text>
