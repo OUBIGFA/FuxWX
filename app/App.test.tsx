@@ -44,3 +44,15 @@ test("rejects an empty scan path and explains permanent removal", async () => {
   await app.press("id:permanent");
   expect(app.texts()).toContain("彻底删除后无法从回收站恢复");
 });
+
+test("supports sidebar category switching and collapse toggle", async () => {
+  const app = await open("./App.tsx", { width: 1160, height: 780 });
+  await app.press("id:nav-image");
+  expect(app.texts()).toContain("重复的图片与截图文件");
+  await app.press("id:nav-document");
+  expect(app.texts()).toContain("重复的文档与压缩文件");
+  await app.press("id:toggle-sidebar");
+  expect(app.texts()).not.toContain("文件类型");
+  await app.press("id:toggle-sidebar");
+  expect(app.texts()).toContain("文件类型");
+});

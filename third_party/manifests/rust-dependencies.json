@@ -3530,7 +3530,7 @@
   },
   {
     "name": "nsh-base",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3538,7 +3538,7 @@
   },
   {
     "name": "nsh-core",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3546,7 +3546,7 @@
   },
   {
     "name": "nsh-dev",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3554,7 +3554,7 @@
   },
   {
     "name": "nsh-engine",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3562,7 +3562,7 @@
   },
   {
     "name": "nsh-i18n",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3570,7 +3570,7 @@
   },
   {
     "name": "nsh-js",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3578,7 +3578,7 @@
   },
   {
     "name": "nsh-macros",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3586,7 +3586,7 @@
   },
   {
     "name": "nsh-package",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3594,7 +3594,7 @@
   },
   {
     "name": "nsh-platform-windows",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3602,7 +3602,7 @@
   },
   {
     "name": "nsh-testing",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3610,7 +3610,7 @@
   },
   {
     "name": "nsh-updater",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",
@@ -3618,7 +3618,7 @@
   },
   {
     "name": "nsh-windows-app",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "source": "registry+https://github.com/rust-lang/crates.io-index",
     "repository": "https://github.com/longbridge/nsh",
     "license": "Apache-2.0",

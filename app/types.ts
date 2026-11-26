@@ -4,9 +4,18 @@ export type Failure = { path: string; reason: string };
 export type Scan = { root: string; scanned: number; groups: Group[]; skipped: Failure[]; cancelled: boolean };
 export type Summary = { total: number; succeeded: number; failed: number; pending: number; bytes: number; cancelled: boolean };
 export type Status = { busy: boolean; phase: string; done: number; total: number; revision: number; error: string | null; summary: Summary | null };
+
+export type FileCategory = "image" | "document" | "media" | "other";
+export type ViewFilter = "all" | "selected" | "unselected" | FileCategory;
+export type SortKey = "reclaimable" | "count" | "name";
+
 export type Row = FileEntry & {
   group: string;
   groupIndex: number;
   groupCount: number;
   first: boolean;
+  last: boolean;
+  isFirstGroup: boolean;
+  isVeryLast: boolean;
+  category: FileCategory;
 };

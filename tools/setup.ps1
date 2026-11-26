@@ -18,10 +18,10 @@ function Checksum([string]$file, [string]$sum) {
     $expected = (Get-Content -LiteralPath $sum).Split(' ')[0]
     if ((Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLower() -ne $expected) { throw "SHA-256 mismatch: $file" }
 }
-$nshZip = Fetch 'nsh-windows-x86_64-0.7.0.zip' 'https://github.com/longbridge/nsh/releases/download/v0.7.0/nsh-windows-x86_64.zip'
-$nshSum = Fetch 'nsh-windows-x86_64-0.7.0.zip.sha256' 'https://github.com/longbridge/nsh/releases/download/v0.7.0/nsh-windows-x86_64.zip.sha256'
+$nshZip = Fetch 'nsh-windows-x86_64-0.7.1.zip' 'https://github.com/longbridge/nsh/releases/download/v0.7.1/nsh-windows-x86_64.zip'
+$nshSum = Fetch 'nsh-windows-x86_64-0.7.1.zip.sha256' 'https://github.com/longbridge/nsh/releases/download/v0.7.1/nsh-windows-x86_64.zip.sha256'
 Checksum $nshZip $nshSum
-$nshDir = Join-Path $projectRoot '.local/toolchains/nsh-0.7.0'
+$nshDir = Join-Path $projectRoot '.local/toolchains/nsh-0.7.1'
 if (-not (Test-Path -LiteralPath (Join-Path $nshDir 'nsh/bin/nsh.exe'))) { Expand-Archive -LiteralPath $nshZip -DestinationPath $nshDir }
 $rustup = Fetch 'rustup-init.exe' 'https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe'
 $rustupSum = Fetch 'rustup-init.exe.sha256' 'https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe.sha256'

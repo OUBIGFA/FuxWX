@@ -53,5 +53,5 @@ digest = hashlib.sha256(release.read_bytes()).hexdigest()
 release.with_suffix(".exe.sha256").write_text(f"{digest}  {release.name}\n", encoding="utf-8")
 (release.parent / "build-summary.json").write_text(json.dumps({"version": metadata["version"], "installer": release.name,
     "bytes": release.stat().st_size, "sha256": digest, "source": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
-    "dirty": bool(subprocess.check_output(["git", "status", "--porcelain"], cwd=ROOT, text=True)), "nsh": "0.7.0"}, indent=2)+"\n", encoding="utf-8")
+    "dirty": bool(subprocess.check_output(["git", "status", "--porcelain"], cwd=ROOT, text=True)), "nsh": "0.7.1"}, indent=2)+"\n", encoding="utf-8")
 print(f"{release}\nSHA-256 {digest}")

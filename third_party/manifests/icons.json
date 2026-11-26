@@ -1,37 +1,9 @@
 [
   {
-    "path": "assets/icons/solar/file-text.svg",
-    "source": "packages/core/svgs/files/Linear/file-text.svg",
-    "bytes": 973,
-    "sha256": "690e1a1cdb34fad2b2623852c08bf8ff168fc90a180eb6ed079b08675ee71945",
-    "license": "CC-BY-4.0"
-  },
-  {
-    "path": "assets/icons/solar/folder-open.svg",
-    "source": "packages/core/svgs/folders/Linear/folder-open.svg",
-    "bytes": 1419,
-    "sha256": "c5b10fcbf21ca52293ed33e7526258d8b7ec374da41e305986b1a0a82bdcae4e",
-    "license": "CC-BY-4.0"
-  },
-  {
-    "path": "assets/icons/solar/magnifier.svg",
-    "source": "packages/core/svgs/search/Linear/magnifier.svg",
-    "bytes": 300,
-    "sha256": "3cf85ed5efae91a9fda3278f9279216d1bcc655a833b8c9c1a3179c6fc263260",
-    "license": "CC-BY-4.0"
-  },
-  {
-    "path": "assets/icons/solar/shield-check.svg",
-    "source": "packages/core/svgs/security/Linear/shield-check.svg",
-    "bytes": 787,
-    "sha256": "27d40bc05c8ca89a6ae2bff27cde88169bb61fd3bc29a2da9952f8bde3df19ae",
-    "license": "CC-BY-4.0"
-  },
-  {
-    "path": "assets/icons/solar/check-circle.svg",
-    "source": "packages/core/svgs/ui/Linear/check-circle.svg",
-    "bytes": 315,
-    "sha256": "3cc6709c933299f2e1f7199a991cc35d3f64514b94b3927e8a9fdf2f8f643932",
+    "path": "assets/icons/solar/archive-minimalistic.svg",
+    "source": "packages/core/svgs/notes/Linear/archive-minimalistic.svg",
+    "bytes": 1062,
+    "sha256": "712aa63d89395a144b6d2530ef1773517a5963716690f41c83efa51f3559a5fd",
     "license": "CC-BY-4.0"
   },
   {
@@ -42,10 +14,94 @@
     "license": "CC-BY-4.0"
   },
   {
-    "path": "assets/icons/solar/trash-bin-minimalistic.svg",
-    "source": "packages/core/svgs/ui/Linear/trash-bin-minimalistic.svg",
-    "bytes": 786,
-    "sha256": "cf4aab672ba098eaf52a772f77bb7b0ab5e74d4a9861d6a670215bdb2b0b8df9",
+    "path": "assets/icons/solar/danger-triangle.svg",
+    "source": "packages/core/svgs/ui/Linear/danger-triangle.svg",
+    "bytes": 647,
+    "sha256": "b8e1581a7c1611086cf9343d92bbb549e8c5e1c2215f2201682b225d6ee5b330",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/file-text.svg",
+    "source": "packages/core/svgs/files/Linear/file-text.svg",
+    "bytes": 973,
+    "sha256": "690e1a1cdb34fad2b2623852c08bf8ff168fc90a180eb6ed079b08675ee71945",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/file-video-camera.svg",
+    "source": "packages/core/svgs/files/Linear/file-video-camera.svg",
+    "bytes": 1806,
+    "sha256": "6b5cbbe394f735525233514aa6d0bcea391ead7966df3c9021b314ffdc6db8a6",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/folder-open.svg",
+    "source": "packages/core/svgs/folders/Linear/folder-open.svg",
+    "bytes": 1419,
+    "sha256": "c5b10fcbf21ca52293ed33e7526258d8b7ec374da41e305986b1a0a82bdcae4e",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/gallery.svg",
+    "source": "packages/core/svgs/video/Linear/gallery.svg",
+    "bytes": 800,
+    "sha256": "7198f587e975cb49c248addbd597ccb929c55be2bb764e3decdfd062ef4cb209",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/info-circle.svg",
+    "source": "packages/core/svgs/ui/Linear/info-circle.svg",
+    "bytes": 379,
+    "sha256": "57acd8e8a15528ce6fc2e654fa61daa4ef8069222eb063926e2d4a1417978742",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/layers-minimalistic.svg",
+    "source": "packages/core/svgs/tools/Linear/layers-minimalistic.svg",
+    "bytes": 1042,
+    "sha256": "c2dbaf48c09a9645ca145155fb473a8155882e3295ad2357c29235fba33eb125",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/magnifier.svg",
+    "source": "packages/core/svgs/search/Linear/magnifier.svg",
+    "bytes": 300,
+    "sha256": "3cf85ed5efae91a9fda3278f9279216d1bcc655a833b8c9c1a3179c6fc263260",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/panel-left-close.svg",
+    "source": "packages/core/svgs/it/Linear/panel-left-close.svg",
+    "bytes": 651,
+    "sha256": "a00856584617d4ce0bcbf2f995b63140f5a38f62d6748e2b63350e1c7cfca610",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/panel-right-close.svg",
+    "source": "packages/core/svgs/it/Linear/panel-right-close.svg",
+    "bytes": 651,
+    "sha256": "92ab349f7d31b7df18f99349de061ceba1a746058acd7073e23f74c98aa54373",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/refresh.svg",
+    "source": "packages/core/svgs/arrows/Linear/refresh.svg",
+    "bytes": 563,
+    "sha256": "5b0946f5b72102459fb7001f3f8458833cb2192294443e29ef36dd3c14cddcce",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/shield-check.svg",
+    "source": "packages/core/svgs/security/Linear/shield-check.svg",
+    "bytes": 787,
+    "sha256": "27d40bc05c8ca89a6ae2bff27cde88169bb61fd3bc29a2da9952f8bde3df19ae",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/sort-vertical.svg",
+    "source": "packages/core/svgs/arrows/Linear/sort-vertical.svg",
+    "bytes": 360,
+    "sha256": "7f68f83133e298aceb6a609043c5fe8ea056f764ea2d611c5b789b2eed619747",
     "license": "CC-BY-4.0"
   },
   {
@@ -53,6 +109,20 @@
     "source": "packages/core/svgs/video/Linear/stop-circle.svg",
     "bytes": 524,
     "sha256": "0af36b8df76e33d532e0356d1e688cb1393d7158d405e7af084b140407540c36",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/trash-bin-minimalistic.svg",
+    "source": "packages/core/svgs/ui/Linear/trash-bin-minimalistic.svg",
+    "bytes": 786,
+    "sha256": "cf4aab672ba098eaf52a772f77bb7b0ab5e74d4a9861d6a670215bdb2b0b8df9",
+    "license": "CC-BY-4.0"
+  },
+  {
+    "path": "assets/icons/solar/unread.svg",
+    "source": "packages/core/svgs/messages/Linear/unread.svg",
+    "bytes": 224,
+    "sha256": "43d57cab9c254f751a0276ef056c692fa6219c2c1174a9b06dfc1ea3d038a461",
     "license": "CC-BY-4.0"
   }
 ]

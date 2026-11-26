@@ -60,7 +60,7 @@ def main():
         (preview_fixture / name).write_bytes((ROOT / "assets/branding/FuxWX_logo.png").read_bytes())
     (ROOT / ".local/desktop-fixture.json").write_text(json.dumps({"folder": str(fixture), "preview": str(preview_fixture), "reports": str(output)}, ensure_ascii=False), encoding="utf-8")
     log = output / "desktop.log"
-    command = [str(ROOT / ".local/toolchains/nsh-0.7.0/nsh/bin/nsh.exe"), "test", "--target", "windows", *sys.argv[1:]]
+    command = [str(ROOT / ".local/toolchains/nsh-0.7.1/nsh/bin/nsh.exe"), "test", "--target", "windows", *sys.argv[1:]]
     # File handles are inherited only by this test process; no user console is opened.
     import msvcrt
     with log.open("wb") as stream:

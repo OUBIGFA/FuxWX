@@ -6,6 +6,11 @@
   "entry": "app/App.tsx",
   "icon": "dist/icons/FuxWX.png",
   "appearance": "light",
+  "window": {
+    "defaultSize": { "width": 1160, "height": 780 },
+    "minSize": { "width": 920, "height": 640 },
+    "titleBar": { "style": "hidden", "height": 38 }
+  },
   "dependencies": {
     "fuxwx-native": { "path": "crates/fuxwx-native" }
   }

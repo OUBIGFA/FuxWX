@@ -5,7 +5,7 @@
 - 公开仓库目标：<https://github.com/OUBIGFA/FuxWX>，默认分支 main
 - 独立历史，移植 WxCleaner 当前快照；上游只作读取参考，不设上游推送目标
 - WxCleaner 基线：`414dd2ed24492b90b017aff5611c6843f42d8059`，MIT，<https://github.com/yqxie1991/WxCleaner>
-- nsh：v0.7.0，Apache-2.0，<https://github.com/longbridge/nsh>
+- nsh：v0.7.1，Apache-2.0，<https://github.com/longbridge/nsh>
 - Solar Icons 基线：`ab241e1bf578dcfe45b0197aee59bd9a08b5fe68`；包 MIT，图标 CC-BY-4.0，作者 480 Design
 - 保留扫描的大小分组、首段哈希、完整 SHA-256 校验流程；使用 nsh / Rust 重建界面和后台清理
 - 独立历史可以清晰区分新应用与上游 Python 工程；不携带旧打包脚本、品牌资源或上游发布历史
